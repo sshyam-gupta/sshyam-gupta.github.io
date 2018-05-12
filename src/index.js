@@ -6,8 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import withTracker from './components/withTracker';
 import { Route, Router } from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
-const history = createBrowserHistory()
 import { unregister as unregisterServiceWorker } from './registerServiceWorker'
+const history = createBrowserHistory()
 
 unregisterServiceWorker();
 

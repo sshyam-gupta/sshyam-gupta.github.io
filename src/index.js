@@ -7,12 +7,13 @@ import withTracker from "./components/withTracker";
 import { Route, Router, Redirect } from "react-router";
 import createBrowserHistory from "history/createBrowserHistory";
 import { unregister as unregisterServiceWorker } from "./registerServiceWorker";
+import { HashRouter } from "react-router-dom";
 const history = createBrowserHistory();
 
 // unregisterServiceWorker();
 
 ReactDOM.render(
-  <Router history={history}>
+  <HashRouter history={history}>
     <div>
       <Route
         exact
@@ -23,7 +24,7 @@ ReactDOM.render(
       />
       <Route path="/under-construction" component={withTracker(App, {})} />
     </div>
-  </Router>,
+  </HashRouter>,
   document.getElementById("root")
 );
 registerServiceWorker();

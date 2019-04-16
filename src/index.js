@@ -1,30 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import withTracker from "./components/withTracker";
-import { Route, Router, Redirect } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
-import { unregister as unregisterServiceWorker } from "./registerServiceWorker";
-import { HashRouter } from "react-router-dom";
-const history = createBrowserHistory();
-
-// unregisterServiceWorker();
+import { Route, Switch } from "react-router";
+import { Router } from "react-router-dom";
+import NotFound from "./NotFound";
+import App from "./App";
+const history = require("history");
+const browserHistory = history.createBrowserHistory();
 
 ReactDOM.render(
-  <HashRouter history={history}>
-    <div>
-      <Route
-        exact
-        path="/"
-        component={() => {
-          return <Redirect to="under-construction" />;
-        }}
-      />
-      <Route path="/under-construction" component={withTracker(App, {})} />
-    </div>
-  </HashRouter>,
+  <Router history={browserHistory}>
+    <Switch>
+      <Route exact path="/" component={App} />
+      <Route path="/under-construction" component={withTracker(NotFound, {})} />
+      <Route path="*" component={withTracker(NotFound, {})} />
+    </Switch>
+  </Router>,
   document.getElementById("root")
 );
 registerServiceWorker();

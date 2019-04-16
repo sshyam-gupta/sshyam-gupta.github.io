@@ -1,51 +1,53 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Typist from "react-typist";
+import "./App.css";
+import Configs from "./configurations.json";
+import SocialIcon from "./components/SocialIcon";
+import { FaLinkedin, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
 
 class App extends Component {
+  prepareGradientStyleSheets = () => {
+    if (Configs.gradientColors) {
+      return {
+        background: "linear-gradient(-45deg, " + Configs.gradientColors + ")",
+        backgroundSize: "400% 400%"
+      };
+    } else {
+      return {
+        background:
+          "linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB)",
+        backgroundSize: "400% 400%"
+      };
+    }
+  };
+
   render() {
     return (
-      <div>
-        <div id="content">
-          <h1>{`< building />`}</h1>
-          <p>Working day and night!</p>
-        </div>
-        <div id="outerCraneContainer">
-          <div className="buildings">
-            <div></div>
-            <div className="1"></div>
-            <div className="2"></div>
-            <div className="3"></div>
-            <div className="4"></div>
+      <div className="gradient" style={this.prepareGradientStyleSheets()}>
+        <main className="App-main">
+          <h1 className="intro">{Configs.devIntro}</h1>
+          <div className="tagline">
+            <Typist cursor={{ hideWhenDone: true }}>{Configs.devDesc}</Typist>
           </div>
-          <div className="crane craneThree">
-            <div className="line lineOne"></div>
-            <div className="line lineTwo"></div>
-            <div className="line lineThree"></div>
-            <div className="stand"></div>
-            <div className="weight"></div>
-            <div className="cabin"></div>
-            <div className="arm"></div>
+          <div className="icons-social">
+            <SocialIcon
+              url="https://github.com/sshyam-gupta"
+              icon={() => <FaGithub />}
+            />
+            <SocialIcon
+              url="https://www.linkedin.com/in/shyam-gupta-66463a62"
+              icon={() => <FaLinkedin />}
+            />
+            <SocialIcon
+              url="https://twitter.com/shyamm06"
+              icon={() => <FaTwitter />}
+            />
+            <SocialIcon
+              url="https://www.instagram.com/shyamm06"
+              icon={() => <FaInstagram />}
+            />
           </div>
-          <div className="crane craneTwo">
-            <div className="line lineOne"></div>
-            <div className="line lineTwo"></div>
-            <div className="line lineThree"></div>
-            <div className="stand"></div>
-            <div className="weight"></div>
-            <div className="cabin"></div>
-            <div className="arm"></div>
-          </div>
-          <div className="crane craneOne">
-            <div className="line lineOne"></div>
-            <div className="line lineTwo"></div>
-            <div className="line lineThree"></div>
-            <div className="stand"></div>
-            <div className="weight"></div>
-            <div className="cabin"></div>
-            <div className="arm"></div>
-          </div>
-        </div>
+        </main>
       </div>
     );
   }

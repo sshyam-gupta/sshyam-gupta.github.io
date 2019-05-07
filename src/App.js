@@ -3,7 +3,10 @@ import Typist from "react-typist";
 import "./App.css";
 import Configs from "./configurations.json";
 import SocialIcon from "./components/SocialIcon";
-import { FaLinkedin, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaGithub, FaInstagram, FaFacebookF } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import Particles from "react-particles-js";
+import particles_json from './particles.json';
 
 class App extends Component {
   prepareGradientStyleSheets = () => {
@@ -15,7 +18,7 @@ class App extends Component {
     } else {
       return {
         background:
-          "linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB)",
+          "linear-gradient(-45deg, #04619F, #000000)",
         backgroundSize: "400% 400%"
       };
     }
@@ -24,6 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="gradient" style={this.prepareGradientStyleSheets()}>
+        <Particles params={particles_json} style={{ position: 'absolute', zIndex: 1 }} />
         <main className="App-main">
           <h1 className="intro">{Configs.devIntro}</h1>
           <div className="tagline">
@@ -33,18 +37,32 @@ class App extends Component {
             <SocialIcon
               url="https://github.com/sshyam-gupta"
               icon={() => <FaGithub />}
+              name={"github"}
+            />
+            <SocialIcon
+              url="mailto:shyamm@outlook.com"
+              icon={() => <MdEmail />}
+              name={"email"}
+            />
+            <SocialIcon
+              url="https://www.facebook.com/shyamm06"
+              icon={() => <FaFacebookF />}
+              name={"facebook"}
             />
             <SocialIcon
               url="https://www.linkedin.com/in/shyam-gupta-66463a62"
               icon={() => <FaLinkedin />}
+              name={"linkedin"}
             />
             <SocialIcon
               url="https://twitter.com/shyamm06"
               icon={() => <FaTwitter />}
+              name={"twitter"}
             />
             <SocialIcon
               url="https://www.instagram.com/shyamm06"
               icon={() => <FaInstagram />}
+              name={"instagram"}
             />
           </div>
         </main>

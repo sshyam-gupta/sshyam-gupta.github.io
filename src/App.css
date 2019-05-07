@@ -29,17 +29,40 @@
 .icons-social {
   align-items: center;
   margin-top: 1.5em;
+  z-index: 100;
+  text-align: center;
 }
 
 .icons-social a {
   margin: 0.75em;
-  font-size: 3em;
+  font-size: 2em;
+  position: relative;
+  white-space: nowrap;
+}
+
+.icons-social .icon-title {
+  visibility: hidden;
+  font-size: 14px;
+  position: absolute;
+  top: 4em;
+  margin-left: -1.5em;
+  transform: translate(-50%, 0%);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.icons-social a:hover > .icon-title {
+  visibility: visible;
 }
 
 @media (max-width: 576px) {
   .icons-social a {
     margin: 0.75em;
     font-size: 2em;
+    white-space: normal;
+    line-height: 2em;
   }
 }
 

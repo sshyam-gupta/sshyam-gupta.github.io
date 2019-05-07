@@ -10,6 +10,7 @@
     "react-dom": "^16.8.6",
     "react-ga": "^2.5.7",
     "react-icons": "^3.6.1",
+    "react-particles-js": "^2.6.0",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
